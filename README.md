@@ -1,80 +1,132 @@
-# tarea2
-# App Notas
-![Licencia](https://img.shields.io/badge/licencia-MIT-green)
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![Estado](https://img.shields.io/badge/estado-en%20desarrollo-yellow)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![Estado](https://img.shields.io/badge/Estado-En_desarrollo-yellow) ![Version](https://img.shields.io/badge/Version-1.0.0-blue) ![Licencia](https://img.shields.io/badge/Licencia-MIT-green)
 
-Aplicacion web sencilla para guardar notas desde el navegador. Pensada para
-estudiantes que necesitan apuntar ideas rapidas sin instalar ningun programa.
-## Tabla de contenidos
-- [Instalacion](#instalacion)
-- [Uso](#uso)
-- [Estado de las funciones](#estado-de-las-funciones)
-- [Arquitectura](#arquitectura)
-- [Contribucion](#contribucion)
-- [Licencia](#licencia) ##
-Instalacion
-```bash
-git clone https://github.com/TU-USUARIO/app-notas.git cd app-
-notas
-```
-## Uso
-1. Abrir el archivo `index.html` en el navegador.
-2. Escribir una nota en el campo de texto.
-3. Hacer clic en **Agregar**
-## Estado de las funciones
-| Funcion | Estado | Prioridad |
-|:	|:	:|	:|
-| Agregar nota | Listo | Alta |
-| Eliminar nota | En curso | Media |
-| Guardar en el navegador | Pendiente | Baja | ## Hoja de ruta
-- [x] Diseno de la pantalla
-- [x] Agregar notas a la lista
-- [ ] Eliminar notas
-- [] Guardar con localStorage
+## 1. Descripción del proyecto
 
-## Ejemplos de codigo Estructura del
-formulario:
-```html
-<input id="nota" placeholder="Escribe una nota">
-<button onclick="agregar()">Agregar</button>
-```
-Funcion que agrega la nota:
-```js
-function agregar() {
-const texto = document.getElementById("nota").value;
-console.log("Nota agregada:", texto);
+Tienda TECSUP es una aplicación web que simula un carrito de compras, donde los usuarios pueden visualizar productos, precios y cantidades, además de calcular el importe total de sus compras.
+
+Está dirigida a personas que desean conocer el funcionamiento de un carrito de compras y a estudiantes que buscan practicar el desarrollo web utilizando HTML, CSS y JavaScript.
+
+## 2. Tabla de contenidos
+
+- [Descripción del proyecto](#1-descripción-del-proyecto)
+- [Tecnologías utilizadas](#3-tecnologías-utilizadas)
+- [Instalación](#4-instalación)
+- [Uso de la aplicación](#5-uso-de-la-aplicación)
+- [Funciones principales](#6-funciones-principales)
+- [Ejemplos de código](#7-ejemplos-de-código)
+- [Hoja de ruta](#8-hoja-de-ruta)
+- [Arquitectura](#9-arquitectura)
+- [Contribuciones](#10-contribuciones)
+- [Licencia](#11-licencia)
+
+
+## 3. Tecnologías utilizadas
+
+El proyecto utiliza las siguientes tecnologías:
+
+Tecnología| Función
+HTML5| Estructura de la página web
+CSS3| Diseño y estilos visuales
+JavaScript| Cálculos y funcionamiento del carrito
+Git| Control de versiones
+GitHub| Almacenamiento del repositorio
+
+## 4. Instalación
+
+Para obtener el proyecto, sigue estos pasos:
+
+1. Clonar el repositorio:
+
+git clone https://github.com/mariaquispev-dot/tienda-tecsup.git
+
+2. Ingresar a la carpeta:
+
+cd tienda-tecsup
+
+3. Abrir el proyecto:
+
+Abre el archivo "index.html" en tu navegador para visualizar la aplicación.
+
+## 5. Uso de la aplicación
+
+1. Abrir el archivo "index.html" en el navegador.
+2. Visualizar los productos disponibles.
+3. Revisar las cantidades y los precios.
+4. Comprobar el importe total del carrito.
+
+## 6. Funciones principales
+
+Función| Descripción
+calcularTotal()| Calcula el importe total del carrito.
+Multiplicar precio por cantidad| Calcula el importe correspondiente a cada producto.
+Mostrar carrito| Presenta los productos, cantidades y precios.
+
+## 7. Ejemplos de código
+
+JavaScript: cálculo del total
+
+```javascript
+function calcularTotal(lista) {
+    let total = 0;
+
+    for (const producto of lista) {
+        total += producto.precio * producto.cantidad;
+    }
+
+    return total;
 }
 ```
-Ejemplo de nota guardada:
-```json
-{ "id": 1, "texto": "Estudiar Markdown", "hecha": false }
+
+HTML: estructura de la tienda
+
+```html
+
+<h1>Tienda TECSUP</h1>
+
+<table>
+    <tr>
+        <th>Producto</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+    </tr>
+</table>
 ```
 
-## Arquitectura
+## 8. Hoja de ruta
+
+- [x] Crear la estructura HTML.
+- [x] Diseñar la página con CSS.
+- [x] Corregir el cálculo del total del carrito.
+- [x] Corregir la referencia del archivo de estilos.
+- [x] Crear Issues para reportar errores.
+- [x] Crear ramas para realizar correcciones.
+- [x] Enviar Pull Requests.
+- [ ] Incorporar nuevas funcionalidades.
+- [ ] Mejorar el diseño de la tienda.
+
+## 9. Arquitectura
+
+El proyecto se organiza mediante los siguientes pasos:
+
 ```mermaid
-graph LR
-A[Usuario] --> B[Frontend]
-B --> C[API]
-C --> D[(Base de datos)]
+flowchart TD
+    A[Inicio] --> B[Mostrar productos]
+    B --> C[Agregar productos al carrito]
+    C --> D[Calcular precio por cantidad]
+    D --> E[Mostrar total del carrito]
 ```
 
-### Flujo para agregar una nota
-```mermaid
-graph TD
-    A[Escribir la nota] --> B{¿Está vacía?}
-    B -- Sí --> C[Mostrar aviso]
-    B -- No --> D[Agregar a la lista]
-    D --> E[Limpiar el campo]
-```
+## 10. Contribuciones
 
-## Contribucion
-1. Haz un fork del repositorio.
-2. Crea una rama: `git checkout -b mejora/mi-cambio`
-3. Guarda tus cambios: `git commit -m "Describe tu cambio"`
-4. Sube la rama: `git push origin mejora/mi-cambio`
-5. Abre un Pull Request explicando que mejoraste. ##
-Licencia
-Este proyecto usa la licencia MIT. Revisa el archivo [LICENSE](LICENSE). ## Autor
-Hecho por **MARIA QUISPE VIZARRETA** - [GitHub](https://github.com/mariaquispev-dot)
+Si deseas colaborar con el proyecto, puedes reportar errores, proponer mejoras y enviar cambios mediante Pull Requests.
+
+Antes de realizar modificaciones, revisa nuestra guía de contribución:
+
+👉 [Leer la guía de contribución (CONTRIBUTING.md)](CONTRIBUTING.md)
+## 11. Licencia
+
+Este proyecto utiliza la licencia MIT, de acuerdo con el archivo LICENSE del repositorio.
+
+---
+
+Proyecto desarrollado como parte del Laboratorio N.º 3: Trabajo colaborativo con repositorios remotos.
